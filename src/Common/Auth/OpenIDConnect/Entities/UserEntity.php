@@ -84,6 +84,8 @@ class UserEntity implements ClaimSetInterface, UserEntityInterface
             ];
         }
         if ($claimsType === 'client') {
+            $fhirUserResource = "Person";
+            $fhirUser = $GLOBALS['site_addr_oath'] . $GLOBALS['web_root'] . '/apis/' . $_SESSION['site_id'] . "/fhir/" . $fhirUserResource . "/" . $this->identifier;
             $claims = [
                 'fhirUser' => $fhirUser,
                 'api:fhir' => true,
